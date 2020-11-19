@@ -1,5 +1,3 @@
-import React, {Component} from "react";
-
 function Footer({copyright}) {
     const date = new Date();
 

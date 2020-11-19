@@ -1,0 +1,11 @@
+.slider{
+    display: flex;
+    .item-img{
+        width: 200px;
+        height: 150px;
+        .img-slider{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

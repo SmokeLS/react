@@ -1,5 +1,3 @@
-import React, {component} from "react";
-
 import './alert.scss';
 
 function Alert({text, color}) {

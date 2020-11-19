@@ -1,5 +1,3 @@
-import React, {component} from 'react';
-
 import './header.scss';
 
 function Header({title, Logo}) {

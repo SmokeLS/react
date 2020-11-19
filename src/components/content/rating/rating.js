@@ -1,5 +1,3 @@
-import React, { Component } from "react";
-
 import "./rating.scss";
 
 function Rating({totalStars, selectedStars}) {

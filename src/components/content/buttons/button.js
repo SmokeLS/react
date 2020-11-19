@@ -1,5 +1,3 @@
-import React, {component} from "react";
-
 import './button.scss';
 
 function Button({text, style, type, href=""}) {

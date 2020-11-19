@@ -1,0 +1,44 @@
+.menu{
+    position: relative;
+    margin-left: 20px;
+    &-button{
+        background-color: #444;
+        outline: none;
+        border: none;
+        color: white;
+        text-align: left;
+        width: 220px;
+        height: 34px;
+        border-radius: 10px;
+        padding: 10px;
+        &:hover{
+            box-shadow: 0 0 0 2px #999;
+        }
+        i{
+            margin-left: 10px;
+        }
+    }
+    &-list{
+        border: 1px solid #aaa;
+        width: 150px;
+        left: 0;
+        margin-top: 2px;
+        overflow: hidden;
+        border-radius: 3px;
+        padding: 0;
+        cursor: pointer;
+    }
+    &-item{
+        list-style-type: none;
+        width: 100%;
+        padding-left: 20px;
+        height: 32px;
+        line-height: 32px;
+        &:hover{
+            background-color: lightblue;
+        }
+    }
+    &-hyper{
+        text-decoration: none;
+    }
+}
