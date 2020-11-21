@@ -21,7 +21,7 @@ export default class Input extends Component {
 
     render(){
 
-        const {type, value, placeholder} = this.props;
+        const {type, placeholder} = this.props;
 
         return (
             <input type={type}

@@ -1,0 +1,50 @@
+.accordion {
+    width: 90%;
+    margin: 0 auto;
+    &-panel{
+        padding: 20px;
+        padding-left: 40px;
+        border: 1px solid #ccc;
+        position: relative;
+        z-index: 2;
+    }
+    &-collapse{
+        height: 0px;
+        z-index: 1;
+        border: 1px solid #ccc;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+.hide-first{
+    height: 0px;
+}
+
+.show {
+    height: 160px;
+    animation: shift 1s ease-in-out;
+}
+
+.hide {
+    height: 0px;
+    animation: unshift 1s ease-in-out;
+}
+
+@keyframes shift {
+    from {
+        height: 0px;
+    }
+    to {
+        height: 160px;
+    }
+}
+
+@keyframes unshift {
+    from {
+        height: 160px;
+    }
+    to {
+        height: 0px;
+    }
+}

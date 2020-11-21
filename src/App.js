@@ -1,3 +1,5 @@
+import React, {Component} from "react";
+
 import Header from './components/header';
 import Navigation from './components/nav';
 import Footer from './components/footer';
@@ -19,10 +21,12 @@ import Square from './components/square';
 import InputText from './components/inputText';
 import Paragraph from './components/paragraph';
 import Menu from './components/menu';
+import ScrollBar from './components/scrollBar';
 
 import './App.css';
 
 import {ReactComponent as Globe} from "./images/globe.svg";
+import TextArray from "./components/textArray";
 
 
 const list = [
@@ -51,47 +55,88 @@ const textButtons = [
     "Something"
 ]
 
+const cardArray = [
+  <Card href="https://zagge.ru/wp-content/uploads/2019/06/aHR0cDovL3d3dy5saXZlc2N.jpg" text="<p>text text</p>"/>,
+  <Card href="https://zagge.ru/wp-content/uploads/2019/06/aHR0cDovL3d3dy5saXZlc2N.jpg" text="<p>text text</p>"/>,
+  <Card href="https://zagge.ru/wp-content/uploads/2019/06/aHR0cDovL3d3dy5saXZlc2N.jpg" text="<p>text text</p>"/>,
+  <Card href="https://zagge.ru/wp-content/uploads/2019/06/aHR0cDovL3d3dy5saXZlc2N.jpg" text="<p>text text</p>"/>
+]
+
+const txt = [
+  "Полноценное приложение",
+  "Полноценное приложение",
+  "Полноценное приложение",
+  "Полноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложение Полноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложениеПолноценное приложение"
+]
+
 const copyright = "@copyright by me";
 
-function App() {
-  return (
-    <>
-      
-      {/* 1 часть задания
-      <Header title="MySite" Logo={Globe}/>
-      <Navigation menu={list}/>
-      <Footer copyright={copyright}/>
+class App extends Component{
+ 
+  state = {
+    counter: 1
+  }
 
-      <Alert text="some text" color="alert-success"/>
-      <Button text="some text1" style="btn-primary" type="button"/>
-      <Button text="some text2" style="btn-success btn-lg" type="a" href="#"/>
-      <Button text="some text3" style="btn-outline-warning" type="submit"/>
-      <Card href="https://zagge.ru/wp-content/uploads/2019/06/aHR0cDovL3d3dy5saXZlc2N.jpg" text="<p>text text</p>"/>
-      <Breadcrumb items={list}/>
+  showToggle = () => {
+    this.setState({
+      counter: this.state.counter + 1
+    });
+  }
 
-      <Title text="title text" size="44" color="red"/>
-      <Input type="text" placeholder="placeholder" value="value" /> 
+  render(){
+    const arrayList = [];
+    const {counter} = this.state;
 
-      <Rating totalStars="4" selectedStars="3" />
+    for (let i = 0; i < counter*2; i++) {
+      arrayList.push(cardArray[i]);
+    }
 
-      <Tag tags={tags}/>
+    return (
+      <>
+  {/*       
+        1 часть задания
+        <Header title="MySite" Logo={Globe}/>
+        <Navigation menu={list}/>
+        <Footer copyright={copyright}/>
 
-      <Pagination countArticles="49" limit="10" /> */}
+        <Alert text="some text" color="alert-success"/>
+        <Button text="some text1" style="btn-primary" type="button"/>
+        <Button text="some text2" style="btn-success btn-lg" type="a" href="#"/>
+        <Button text="some text3" style="btn-outline-warning" type="submit"/>
+        <Card href="https://zagge.ru/wp-content/uploads/2019/06/aHR0cDovL3d3dy5saXZlc2N.jpg" text="<p>text text</p>"/>
+        <Breadcrumb items={list}/>
 
-      <ErrorMessage />
-      <Text />
-      <Slider imgs={imgs} />    
-      <Square />
-      <InputText min="3" max ="5"/>
-      <Paragraph text='Создать компонет, которому передаем текст (3-4 абзаца с точкой).
-      Компонент выводит только первое предложение.
-      И есть кнопка "Показать подробнее" - при клике на неё выводиться вместо одного предложения весь текст.
-      (состояние с тру или фолс)'/>
-      <Menu textButtons={textButtons} title="Кнопка выпадающего списка"/>
+        <Title text="title text" size="44" color="red"/>
+        <Input type="text" placeholder="placeholder" value="value" /> 
 
+        <Rating totalStars="4" selectedStars="3" />
 
-    </>
-  );
+        <Tag tags={tags}/>
+
+        <Pagination countArticles="49" limit="10" /> */}
+
+        {/* <ErrorMessage />
+        <Text />
+        <Slider imgs={imgs} />    
+        <Square />
+        <InputText min="3" max ="5"/>
+        <Paragraph text='Создать компонет, которому передаем текст (3-4 абзаца с точкой).
+        Компонент выводит только первое предложение.
+        И есть кнопка "Показать подробнее" - при клике на неё выводиться вместо одного предложения весь текст.
+        (состояние с тру или фолс)'/>
+        <Menu textButtons={textButtons} title="Кнопка выпадающего списка"/> */}
+
+        {arrayList}
+        <button onClick={this.showToggle}>Показать еще...</button> 
+
+        <TextArray text={txt}/>
+        <ScrollBar leng="120" />
+
+        <Pagination countArticles="49" limit="10" />
+
+      </>
+    );
+  }
 }
 
 export default App;
