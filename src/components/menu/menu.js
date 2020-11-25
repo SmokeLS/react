@@ -8,8 +8,17 @@ export default class Slider extends Component {
         hidden: true
     }
 
-    toggleMenu = () => {
+    selectedItem = (event) => {
+        const prevActive = document.querySelector(".active");
+        if (prevActive){
+            prevActive.classList.remove("active");
+            event.target.closest("li").classList.add("active");
+        } else { 
+            event.target.closest("li").classList.add("active");
+        }
+    }
 
+    toggleMenu = () => {
         this.setState({
             hidden: !this.state.hidden
         });
@@ -23,7 +32,9 @@ export default class Slider extends Component {
         if (!hidden){
             caretClass = "fa fa-caret-right";
             for (let i = 0; i < this.props.textButtons.length; i++) {
-                list.push(<li className="menu-item"><a className="menu-hyper">{this.props.textButtons[i]}</a></li>);
+                list.push(<li className="menu-item" onClick={this.selectedItem}>
+                    <a className="menu-hyper">{this.props.textButtons[i]}</a>
+                </li>);
             }
         }
 

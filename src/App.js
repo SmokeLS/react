@@ -131,8 +131,11 @@ class App extends Component{
 
         <TextArray text={txt}/>
         <ScrollBar leng="120" />
+        <Menu textButtons={textButtons} title="Кнопка выпадающего списка"/> */}
 
         <Pagination countArticles="49" limit="10" />
+
+        <Rating totalStars="5" selectedStars="3" />
 
       </>
     );

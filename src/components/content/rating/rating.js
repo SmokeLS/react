@@ -1,22 +1,39 @@
+import React, {Component} from 'react';
+
 import "./rating.scss";
 
-function Rating({totalStars, selectedStars}) {
+export default class Rating extends Component{
 
-    const newList = [];
+    chooseStars = (total) => {
+        const yellows = document.querySelectorAll(".fa-star.yellow");
+        const blacks = document.querySelectorAll(".fa-star");
 
-    for (let i = 0; i < totalStars; i++) {
-        if (i < selectedStars){
-            newList.push(<i className='fa fa-star yellow' key={i}></i>);
-        } else {
-            newList.push(<i className='fa fa-star' key={i}></i>);
+        yellows.forEach((item) => {
+            item.classList.remove("yellow");
+        });
+
+        for (let i = 0; i < total; i++) {
+            blacks[i].classList.add("yellow");
         }
     }
 
-    return (
-        <div className="rating-block">
-            Rating {newList}
-        </div>
-    );
-}
+    render() {
 
-export default Rating;
+        const {totalStars, selectedStars} = this.props;
+        const newList = [];
+
+        for (let i = 0; i < totalStars; i++) {
+            if (i < selectedStars){
+                newList.push(<i className='fa fa-star yellow' key={i} onClick={() => {this.chooseStars(i+1)}}></i>);
+            } else {
+                newList.push(<i className='fa fa-star' key={i} onClick={() => {this.chooseStars(i+1)}}></i>);
+            }
+        }
+
+        return (
+            <div className="rating-block">
+                Rating {newList}
+            </div>
+        );
+    }
+}
